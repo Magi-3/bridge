@@ -1,8 +1,12 @@
 package me.magi.demoniccore.model.repository;
 
-import me.magi.demoniccore.model.entity.MilitaryEntity;
-import org.springframework.data.jpa.repository.JpaRepository;
-import org.springframework.data.repository.Repository;
+import me.magi.demoniccore.model.entity.UserEntity;
+import org.springframework.data.repository.CrudRepository;
+import org.springframework.stereotype.Repository;
+import org.springframework.transaction.annotation.Transactional;
 
-public interface MilitaryRepository extends JpaRepository<MilitaryEntity, Long> {
+@Repository
+@Transactional
+public interface MilitaryRepository extends CrudRepository<UserEntity, Long> {
+
 }

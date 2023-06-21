@@ -1,6 +1,8 @@
 package me.magi.demoniccore.api.dto;
 
-public class MilitaryRequestDto {
+import me.magi.demoniccore.model.entity.enums.BloodType;
+
+public class UserRequestDto {
 
     private String name;
 
@@ -12,7 +14,7 @@ public class MilitaryRequestDto {
 
     private String bairro;
 
-    private String tipoSanguineo;
+    private BloodType tipoSanguineo;
 
     public String getName() {
         return name;
@@ -34,7 +36,7 @@ public class MilitaryRequestDto {
         return bairro;
     }
 
-    public String getTipoSanguineo() {
+    public BloodType getTipoSanguineo() {
         return tipoSanguineo;
     }
 }

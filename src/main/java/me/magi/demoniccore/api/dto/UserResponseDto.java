@@ -1,20 +1,9 @@
-package me.magi.demoniccore.model.entity;
+package me.magi.demoniccore.api.dto;
 
-import jakarta.persistence.*;
 import me.magi.demoniccore.model.entity.enums.Behavior;
 import me.magi.demoniccore.model.entity.enums.BloodType;
 
-import java.util.UUID;
-
-@Entity
-@Table(name = "effective_entity")
-public class MilitaryEntity {
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column(name = "id", nullable = false)
-    private UUID id;
-
+public class UserResponseDto {
     private String name;
 
     private String cellNumber;
@@ -31,68 +20,75 @@ public class MilitaryEntity {
 
     private BloodType tipoSanguineo;
 
-    public UUID getId() {
-        return id;
+    public UserResponseDto(String name, String cellNumber, Behavior behavior, Boolean cfc, String cpf, String logradouro, String bairro, BloodType tipoSanguineo) {
+        this.name = name;
+        this.cellNumber = cellNumber;
+        this.behavior = behavior;
+        this.cfc = cfc;
+        this.cpf = cpf;
+        Logradouro = logradouro;
+        this.bairro = bairro;
+        this.tipoSanguineo = tipoSanguineo;
     }
 
     public String getName() {
         return name;
     }
 
-    public String getCellNumber() {
-        return cellNumber;
-    }
-
-    public Behavior getBehavior() {
-        return behavior;
-    }
-
-    public Boolean getCfc() {
-        return cfc;
-    }
-
-    public String getCpf() {
-        return cpf;
-    }
-
-    public String getLogradouro() {
-        return Logradouro;
-    }
-
-    public String getBairro() {
-        return bairro;
-    }
-
-    public BloodType getTipoSanguineo() {
-        return tipoSanguineo;
-    }
-
     public void setName(String name) {
         this.name = name;
+    }
+
+    public String getCellNumber() {
+        return cellNumber;
     }
 
     public void setCellNumber(String cellNumber) {
         this.cellNumber = cellNumber;
     }
 
+    public Behavior getBehavior() {
+        return behavior;
+    }
+
     public void setBehavior(Behavior behavior) {
         this.behavior = behavior;
+    }
+
+    public Boolean getCfc() {
+        return cfc;
     }
 
     public void setCfc(Boolean cfc) {
         this.cfc = cfc;
     }
 
+    public String getCpf() {
+        return cpf;
+    }
+
     public void setCpf(String cpf) {
         this.cpf = cpf;
+    }
+
+    public String getLogradouro() {
+        return Logradouro;
     }
 
     public void setLogradouro(String logradouro) {
         Logradouro = logradouro;
     }
 
+    public String getBairro() {
+        return bairro;
+    }
+
     public void setBairro(String bairro) {
         this.bairro = bairro;
+    }
+
+    public BloodType getTipoSanguineo() {
+        return tipoSanguineo;
     }
 
     public void setTipoSanguineo(BloodType tipoSanguineo) {

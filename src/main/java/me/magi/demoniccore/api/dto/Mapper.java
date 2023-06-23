@@ -15,16 +15,18 @@ public class Mapper {
     }
 
     public static UserResponseDto forResponse(UserEntity military) {
-        return new UserResponseDto(
-                military.getName(),
-                military.getCellNumber(),
-                military.getBehavior(),
-                military.getCfc(),
-                military.getCpf(),
-                military.getAddress(),
-                military.getDistrict(),
-                military.getBloodType()
-                );
+        var newResponse = UserResponseDto.newInstance();
+        newResponse.setName(military.getName());
+        newResponse.setCellNumber(military.getCellNumber());
+        newResponse.setBehavior(military.getBehavior());
+        newResponse.setCfc(military.getCfc());
+        newResponse.setCpf(military.getCpf());
+        newResponse.setAddress(military.getAddress());
+        newResponse.setDistrict(military.getDistrict());
+        newResponse.setBloodType(military.getBloodType());
+        newResponse.setIdNumber(military.getIdNumber());
+
+        return newResponse;
     }
 
     public static UserEntity forEntity (UserRequestDto military) {
@@ -32,9 +34,10 @@ public class Mapper {
         newMilitary.setName(military.getName());
         newMilitary.setCellNumber(military.getCellNumber());
         newMilitary.setCpf(military.getCpf());
-        newMilitary.setAddress(military.getLogradouro());
-        newMilitary.setDistrict(military.getBairro());
-        newMilitary.setBloodType(military.getTipoSanguineo());
+        newMilitary.setAddress(military.getAddress());
+        newMilitary.setDistrict(military.getDistrict());
+        newMilitary.setBloodType(military.getBloodType());
+        newMilitary.setIdNumber(military.getIdNumber());
 
         newMilitary.setBehavior(Behavior.Bom);
         newMilitary.setCfc(Boolean.FALSE);

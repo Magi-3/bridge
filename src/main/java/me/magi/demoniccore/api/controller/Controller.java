@@ -1,5 +1,6 @@
 package me.magi.demoniccore.api.controller;
 
+import jakarta.persistence.PostUpdate;
 import me.magi.demoniccore.api.dto.Mapper;
 import me.magi.demoniccore.api.dto.UserRequestDto;
 import me.magi.demoniccore.api.dto.UserResponseDto;
@@ -30,6 +31,25 @@ public class Controller {
     @ResponseStatus(HttpStatus.CREATED)
     public void addNewMilitary(@RequestBody UserRequestDto userRequestDto) {
         service.addNewMilitary(Mapper.forEntity(userRequestDto));
+    }
+
+    @GetMapping("/user/{id}")
+    @ResponseStatus(HttpStatus.FOUND)
+    public UserResponseDto findMilitaryById(@PathVariable String id) {
+        var military = service.readMilitary(id);
+        return Mapper.forResponse(military);
+    }
+
+    @DeleteMapping("/user/{id}")
+    @ResponseStatus(HttpStatus.GONE)
+    public void DeleteMilitary(@PathVariable String id) {
+        service.removeMilitary(id);
+    }
+
+    @PatchMapping("/user/{id}")
+    @ResponseStatus(HttpStatus.ACCEPTED)
+    public void UpdateMilitary(@PathVariable String id, @RequestBody UserRequestDto userRequestDto) {
+        service.updateMilitaryById(id, userRequestDto);
     }
 
 }

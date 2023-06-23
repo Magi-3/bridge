@@ -1,9 +1,11 @@
 package me.magi.demoniccore.model.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotBlank;
 import me.magi.demoniccore.model.entity.enums.Behavior;
 import me.magi.demoniccore.model.entity.enums.BloodType;
 
+import java.lang.annotation.Repeatable;
 import java.util.UUID;
 
 @Entity
@@ -15,6 +17,7 @@ public class UserEntity {
     @Column(name = "id", nullable = false)
     private UUID id;
 
+    @NotBlank
     private String name;
 
     private String cellNumber;
@@ -31,8 +34,19 @@ public class UserEntity {
 
     private BloodType bloodType;
 
+    @Column(unique = true)
+    private String idNumber;
+
     public static UserEntity newInstance(){
         return new UserEntity();
+    }
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public UUID getId() {

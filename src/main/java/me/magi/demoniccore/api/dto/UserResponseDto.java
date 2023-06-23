@@ -14,21 +14,25 @@ public class UserResponseDto {
 
     private String cpf;
 
-    private String Logradouro;
+    private String address;
 
-    private String bairro;
+    private String district;
 
-    private BloodType tipoSanguineo;
+    private BloodType bloodType;
 
-    public UserResponseDto(String name, String cellNumber, Behavior behavior, Boolean cfc, String cpf, String logradouro, String bairro, BloodType tipoSanguineo) {
-        this.name = name;
-        this.cellNumber = cellNumber;
-        this.behavior = behavior;
-        this.cfc = cfc;
-        this.cpf = cpf;
-        Logradouro = logradouro;
-        this.bairro = bairro;
-        this.tipoSanguineo = tipoSanguineo;
+    private String idNumber;
+
+    public static UserResponseDto newInstance(){
+        return new UserResponseDto();
+    }
+
+
+    public String getIdNumber() {
+        return idNumber;
+    }
+
+    public void setIdNumber(String idNumber) {
+        this.idNumber = idNumber;
     }
 
     public String getName() {
@@ -71,27 +75,27 @@ public class UserResponseDto {
         this.cpf = cpf;
     }
 
-    public String getLogradouro() {
-        return Logradouro;
+    public String getAddress() {
+        return address;
     }
 
-    public void setLogradouro(String logradouro) {
-        Logradouro = logradouro;
+    public void setAddress(String address) {
+        this.address = address;
     }
 
-    public String getBairro() {
-        return bairro;
+    public String getDistrict() {
+        return district;
     }
 
-    public void setBairro(String bairro) {
-        this.bairro = bairro;
+    public void setDistrict(String district) {
+        this.district = district;
     }
 
-    public BloodType getTipoSanguineo() {
-        return tipoSanguineo;
+    public BloodType getBloodType() {
+        return bloodType;
     }
 
-    public void setTipoSanguineo(BloodType tipoSanguineo) {
-        this.tipoSanguineo = tipoSanguineo;
+    public void setBloodType(BloodType bloodType) {
+        this.bloodType = bloodType;
     }
 }
